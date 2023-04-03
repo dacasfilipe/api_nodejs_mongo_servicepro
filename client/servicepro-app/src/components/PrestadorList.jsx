@@ -1,7 +1,6 @@
-// components/PrestadorList.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const API_BASE_URL = 'http://localhost:3000';
 
 const PrestadorList = () => {
   const [prestadores, setPrestadores] = useState([]);
@@ -12,7 +11,7 @@ const PrestadorList = () => {
 
   const fetchPrestadores = async () => {
     try {
-      const response = await axios.get('/api/prestadores');
+      const response = await axios.get(`${API_BASE_URL}/api/prestadores`);
       setPrestadores(response.data);
     } catch (err) {
       console.error('Erro ao buscar prestadores', err);
