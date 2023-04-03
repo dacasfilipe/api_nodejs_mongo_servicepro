@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+const API_BASE_URL = 'http://localhost:3000';
 
 const PrestadorForm = () => {
   const [nome, setNome] = useState('');
@@ -19,7 +20,7 @@ const PrestadorForm = () => {
     };
 
     try {
-      await axios.post('/api/prestadores', novoPrestador);
+      await axios.post(`${API_BASE_URL}/api/prestadores`, novoPrestador);
       setNome('');
       setTelefone('');
       setEmail('');
